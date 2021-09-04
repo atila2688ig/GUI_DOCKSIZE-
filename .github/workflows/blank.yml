@@ -1,0 +1,15 @@
+ Case $iGetArray
+                $aReturn = _GUICtrlListView_CreateArray($iListView, Default) ; Use | as the default delimeter.
+                _ArrayDisplay($aReturn, '_GUICtrlListView_CreateArray() array.')
+
+                $aStringSplit = StringSplit($aReturn[0][2], '|')
+                _ArrayDisplay($aStringSplit, 'StringSplit() to retrieve column names.')
+
+            Case $iRefresh
+                GUICtrlDelete($iListView)
+                _CreateListView($hGUI, $iListView)
+
+        EndSwitch
+    WEnd
+    GUIDelete($hGUI)
+EndFunc
